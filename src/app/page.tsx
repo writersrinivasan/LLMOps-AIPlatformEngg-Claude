@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Hand, Layers, Users, Zap } from "lucide-react";
+import { ArrowRight, CheckCircle2, Hand, Layers, Rocket, Users, Zap } from "lucide-react";
 import { COLORS, MODULES, TOTAL_MINUTES } from "@/lib/curriculum";
 import { useApp } from "@/lib/store";
 import { cx, Input } from "@/components/ui";
@@ -25,6 +25,16 @@ export default function Home() {
           <Input value={team} onChange={setTeam} placeholder="Your team name (optional)" className="border-white/20 bg-white/10 text-white placeholder:text-indigo-200" />
         </div>
       </div>
+
+      <Link href="/showcase" className="group mt-6 flex items-center gap-4 rounded-2xl bg-[#060a17] p-5 text-white ring-1 ring-violet-500/40 transition hover:ring-violet-400">
+        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-400 via-violet-500 to-fuchsia-500 text-2xl">🛡️</div>
+        <div className="flex-1">
+          <div className="text-xs font-bold uppercase tracking-widest text-cyan-300">Finale · industry showcase</div>
+          <div className="text-lg font-bold">ClaimPilot: an agentic insurance-claims platform built from everything in this session</div>
+          <div className="text-sm text-slate-400">7 agents, gateway, RAG, guardrails, HITL, evals, canary + rollback and FinOps, visualised live.</div>
+        </div>
+        <Rocket className="text-violet-300 transition group-hover:-translate-y-1" />
+      </Link>
 
       <h2 className="mt-8 mb-3 text-lg font-bold">Session timeline · {TOTAL_MINUTES} minutes</h2>
       <div className="flex h-12 overflow-hidden rounded-xl border border-slate-200 bg-white">

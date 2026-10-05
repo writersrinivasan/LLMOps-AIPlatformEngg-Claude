@@ -30,3 +30,14 @@ input[type="range"] { accent-color: #4f46e5; }
 
 .scrollbar-thin::-webkit-scrollbar { width: 6px; height: 6px; }
 .scrollbar-thin::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+
+/* ---------- ClaimPilot showcase ---------- */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes floaty { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(30px,-20px) scale(1.08); } }
+@keyframes shimmer { to { background-position: 200% center; } }
+@keyframes confetti-fall { 0% { transform: translateY(-10vh) rotate(0); opacity: 1; } 100% { transform: translateY(105vh) rotate(720deg); opacity: .9; } }
+.confetti { position: absolute; top: 0; width: 9px; height: 14px; border-radius: 2px; animation: confetti-fall 3.2s cubic-bezier(.25,.6,.4,1) forwards; }
+.orb { position: absolute; border-radius: 9999px; filter: blur(80px); animation: floaty 14s ease-in-out infinite; pointer-events: none; }
+.text-shimmer { background: linear-gradient(90deg,#22d3ee,#a78bfa,#f472b6,#fbbf24,#22d3ee); background-size: 200% auto; -webkit-background-clip: text; background-clip: text; color: transparent; animation: shimmer 6s linear infinite; }
+.scrollbar-dark::-webkit-scrollbar { width: 6px; }
+.scrollbar-dark::-webkit-scrollbar-thumb { background: rgba(148,163,184,.25); border-radius: 3px; }

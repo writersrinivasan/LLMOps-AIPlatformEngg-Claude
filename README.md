@@ -33,6 +33,25 @@ npm run dev            # http://localhost:3000
 | 6. Enterprise AI Platform | 40 | 100-teams calculator · Agent runtime + tool registry (MCP) · Developer golden path · Maturity radar |
 | 7. Capstone | 20 | Full platform design canvas with scorecard and timers |
 
+## Finale: ClaimPilot industry showcase (`/showcase`)
+
+A standalone, full-screen app (sidebar → **Live Showcase**) that puts every module into one realistic product:
+an agentic insurance-claims platform for the fictional insurer Acme Assure.
+
+* **Mission Control**: synthetic production traffic flows through a 7-agent mesh (gateway → guardrails → supervisor →
+  intake / damage / coverage-RAG / fraud in parallel → settlement → human adjuster → comms → output guard → LLM judge).
+  Live KPIs and metrics, an event stream, and an adjuster queue the room can approve from. The **chaos console** injects a provider outage,
+  an injection attack wave, a bad prompt canary or a traffic surge, and the platform heals itself.
+* **Claim Studio**: process one claim step by step with PII redaction, injection quarantine, gateway routing, retrieved clauses,
+  fraud gauge, a human-in-the-loop payout approval, judge scores, the customer message and a full trace. "Write your own claim" lets the room try.
+  In LIVE mode the intake, coverage, comms and judge agents call the real LLM (falling back to the simulator on errors).
+* **Release & Evals**: ship coverage-prompt v3.3 through PR → unit tests → golden set → red team → budget → shadow → canary → rollout.
+  The "generous" prompt is stopped by the eval gate. Bypass the gate and the online judge rolls it back.
+* **Platform & FinOps**: ROI, chargeback per tenant, MCP tool registry, model pool, shared capabilities, golden path.
+* **Learning lens**: every panel carries a module chip. Click a module in the bottom bar to highlight everything it powers.
+
+Code: `src/lib/showcase/` (data, single-claim engine, traffic autopilot) and `src/components/showcase/`.
+
 ## Facilitating
 
 * Open **Facilitator run sheet** for the minute-by-minute plan.

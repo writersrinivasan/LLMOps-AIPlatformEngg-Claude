@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BookOpen, Cpu, Home, Presentation, Settings, Zap } from "lucide-react";
+import { BookOpen, Cpu, Home, Presentation, Rocket, Settings, Zap } from "lucide-react";
 import { COLORS, MODULES, TOTAL_MINUTES } from "@/lib/curriculum";
 import { useApp } from "@/lib/store";
 import { cx, Toggle } from "@/components/ui";
@@ -10,6 +10,8 @@ export function Shell({ children }: { children: React.ReactNode }) {
   const path = usePathname();
   const { done, isLive, facilitator, setFacilitator } = useApp();
   const totalLabs = MODULES.reduce((a, m) => a + m.labs.length, 0);
+  // the industry showcase is a standalone, full-screen app
+  if (path.startsWith("/showcase")) return <>{children}</>;
 
   return (
     <div className="flex min-h-screen">
@@ -26,6 +28,13 @@ export function Shell({ children }: { children: React.ReactNode }) {
         <nav className="scrollbar-thin flex-1 overflow-y-auto px-2 py-3 text-sm">
           <NavLink href="/" active={path === "/"} icon={<Home size={15} />}>Session map</NavLink>
           <NavLink href="/facilitator" active={path === "/facilitator"} icon={<Presentation size={15} />}>Facilitator run sheet</NavLink>
+          <Link href="/showcase" className="group mt-3 mb-1 flex items-center gap-2.5 rounded-xl bg-gradient-to-r from-cyan-500 via-violet-600 to-fuchsia-600 px-3 py-2.5 text-white shadow-md shadow-violet-300 transition hover:brightness-110">
+            <Rocket size={16} className="transition group-hover:-translate-y-0.5" />
+            <span className="leading-tight">
+              <span className="block text-sm font-bold">Live Showcase</span>
+              <span className="text-[11px] text-white/80">ClaimPilot · all 5 hours in one app</span>
+            </span>
+          </Link>
           <div className="mt-4 mb-1 px-2 text-[10px] font-bold uppercase tracking-wider text-slate-400">Modules</div>
           {MODULES.map((m) => {
             const c = COLORS[m.color];
